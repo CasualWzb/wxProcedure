@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">
+    <view>
+      <text class="text">推荐音乐</text>
+    </view>
+    <view>
+      <text>排行榜</text>
+    </view>
+    <view>
+       <text>搜索</text>
+    </view>  
+  </view>
+  <view class="titleLight"></view>
+  <view class="musicList">
+      推荐歌单
+  </view>
+</view>
+<view class="swiper">
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#fff" indicator-color="rgba(144,144,144,.8)">
+      <block wx:for="{{imgUrls}}" wx:key="index">
+        <swiper-item style="background:url({{item}});background-repeat: no-repeat;background-size:100% 200px; ">
+        </swiper-item>
+      </block>
+  </swiper>
+</view>
+<view class="musicList">
+      最新音乐
+</view>
+<view class="singList" wx:for="{{list}}" wx:key="index">
+  <view class="audioPlay" data-index = "{{item.url}}" bindtap="click"><image src="img/播放.png"></image></view>
+  <view class="singName">{{item.songname}}</view>
+  <view class="singerName"><text class="nameBefroe"></text>{{item.singername}}</view> 
+</view>
+<audio src="{{url}}" id="myAudio"></audio>
+
